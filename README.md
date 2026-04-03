@@ -1,6 +1,6 @@
 # Astrocartography
 
-A JS astrocartography and astrology research engine with a JSON CLI for charts, lines, location scoring, transits, horary, progressions, returns, profections, zodiacal releasing, and rectification experiments.
+A JavaScript astrocartography CLI for charts, lines, location scoring, transits, horary, progressions, returns, profections, zodiacal releasing, and rectification.
 
 ## Agentic-First Install
 
@@ -15,7 +15,7 @@ npm install
 Then give the agent a short task such as:
 
 ```text
-Read HANDOFF.md and astro.mjs, run npm test, then show me how to use the CLI for charts, lines, and rectification.
+Read README.md and astro.mjs, run npm test, then show me how to use the CLI for charts, lines, and rectification.
 ```
 
 That gives the agent the shortest path to the real entrypoints and the working command surface.
@@ -33,19 +33,17 @@ Useful examples:
 ```bash
 node astro.mjs chart '{"datetime":"2026-04-03T12:00:00Z"}'
 node astro.mjs lines '{"datetime":"2026-04-03T12:00:00Z"}'
-node astro.mjs rectify '{"birth":{"date":"2002-09-28","time":"20:45","lat":56.01,"lon":92.87},"events":[]}'
+node astro.mjs rectify '{"birthDate":"2001-01-15","lat":51.5074,"lon":-0.1278,"timezone":"Europe/London","events":[{"label":"Move","date":"2024-03-20"}]}'
 ```
 
 ## Dev
 
 ```bash
 npm test
-npm run build
-npm run dev
 ```
 
 Main entrypoints:
 
 - `astro.mjs` for the JSON CLI
-- `HANDOFF.md` for the quickest architecture overview
-- `rectification/` for the rectification subsystem and research notes
+- `profile.js` for the bundled sample profile and input validation
+- `rectification/` for the rectification runtime

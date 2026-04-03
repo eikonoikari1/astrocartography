@@ -19,7 +19,6 @@
  *   solar-return   Compute a solar return chart
  *   profections    Compute annual profections
  *   zodiacal-releasing  Compute ZR periods from Lot of Fortune
- *   primary-directions  Show the frozen research-only primary-directions spec
  *   rectify        Search candidate birth times from dated events
  *   houses         Compute house cusps for a location/time
  *
@@ -35,7 +34,6 @@ import { analyzeHorary } from "./horary.js";
 import { searchAngleTransits, searchTransits, searchMajorTransits } from "./transits.js";
 import { progressedAgeForEvent, progressedAnglesAtAge, progressionTimeline } from "./progressions.js";
 import { SIGN_RULER, profectionAtAge, profectionAtDate, profectionTimeline, signFromLongitude } from "./profections.js";
-import { buildPrimaryDirectionsReport } from "./primaryDirections.js";
 import { rectifyBirthTime } from "./rectification/index.js";
 import { solarReturnChart } from "./solarReturn.js";
 import { NAIBOD_DEGREES_PER_YEAR, SOLAR_ARC_METHODS, directSolarArcRecord, solarArcAtAge } from "./solarArc.js";
@@ -177,7 +175,7 @@ function resolveScoreCategory(value) {
 // ── Commands ────────────────────────────────────────────────────────────────
 
 async function main() {
-  if (!cmd) die("Usage: node astro.mjs <command> [options-json]\nCommands: chart, chart-svg, lines, score, score-cities, natal-strength, transits, transits-to-angles, horary, progressions, solar-arc, solar-return, profections, zodiacal-releasing, primary-directions, rectify, houses");
+  if (!cmd) die("Usage: node astro.mjs <command> [options-json]\nCommands: chart, chart-svg, lines, score, score-cities, natal-strength, transits, transits-to-angles, horary, progressions, solar-arc, solar-return, profections, zodiacal-releasing, rectify, houses");
 
   const opts = parseOpts();
 
@@ -510,11 +508,6 @@ async function main() {
       break;
     }
 
-    case "primary-directions": {
-      out(buildPrimaryDirectionsReport({ methodBundleId: opts.methodBundleId }));
-      break;
-    }
-
     case "rectify": {
       const birthDate = typeof opts.birthDate === "string" ? opts.birthDate : DEFAULT_PROFILE.birth.date;
       if (!/^\d{4}-\d{2}-\d{2}$/.test(birthDate)) die("birthDate must be an ISO local date string");
@@ -568,7 +561,7 @@ async function main() {
     }
 
     default:
-      die(`Unknown command: ${cmd}. Available: chart, chart-svg, lines, score, score-cities, natal-strength, transits, transits-to-angles, horary, progressions, solar-arc, solar-return, profections, zodiacal-releasing, primary-directions, rectify, houses`);
+      die(`Unknown command: ${cmd}. Available: chart, chart-svg, lines, score, score-cities, natal-strength, transits, transits-to-angles, horary, progressions, solar-arc, solar-return, profections, zodiacal-releasing, rectify, houses`);
   }
 }
 

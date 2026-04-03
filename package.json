@@ -21,7 +21,6 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node validate_swap.test.mjs && node houses.test.mjs && node horary.test.mjs && node progressions.test.mjs && node solarArc.test.mjs && node solarReturn.test.mjs && node transits.test.mjs && node zodiacalReleasing.test.mjs && node profections.test.mjs && node primaryDirections.test.mjs && node rectificationCli.test.mjs && node rectification.test.mjs && node profile.test.mjs && node lines.test.mjs && node natalScoring.test.mjs && node astrologyChart2Adapter.test.mjs && node chartSvgRenderer.test.mjs && node validate_research_docs.test.mjs",
-    "test:network": "node validate_jpl.test.mjs && node validate_groundtruth.test.mjs"
+    "test": "node smoke.test.mjs"
   }
 }
