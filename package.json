@@ -1,0 +1,27 @@
+{
+  "name": "astrocartography",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "astrochart2": "^0.7.3",
+    "astronomy-engine": "^2.1.19",
+    "d3": "^7.9.0",
+    "jsdom": "^29.0.1",
+    "luxon": "^3.6.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tz-lookup": "^6.1.25"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.0",
+    "vite": "^5.4.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node validate_swap.test.mjs && node houses.test.mjs && node horary.test.mjs && node progressions.test.mjs && node solarArc.test.mjs && node solarReturn.test.mjs && node transits.test.mjs && node zodiacalReleasing.test.mjs && node profections.test.mjs && node primaryDirections.test.mjs && node rectificationCli.test.mjs && node rectification.test.mjs && node profile.test.mjs && node lines.test.mjs && node natalScoring.test.mjs && node astrologyChart2Adapter.test.mjs && node chartSvgRenderer.test.mjs && node validate_research_docs.test.mjs",
+    "test:network": "node validate_jpl.test.mjs && node validate_groundtruth.test.mjs"
+  }
+}
